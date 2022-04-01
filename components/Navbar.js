@@ -42,21 +42,19 @@ const Navbar = () => {
         </Link>
         <Flex p={2}>
           <HStack spacing={5} mr={10}>
-          {
-            menuItems.map((item=> (
-              <Link href={item.link}>
-              <Button
-                size="sm"
-                fontSize="xs"
-                variant="outline"
-                borderRadius="full"
-                fontWeight="bold"
-              >
-                {item.title}
-              </Button>
-            </Link>
-            )))
-          }
+            {menuItems.map((item, i) => (
+              <Link href={item.link} key={i}>
+                <Button
+                  size="sm"
+                  fontSize="xs"
+                  variant="outline"
+                  borderRadius="full"
+                  fontWeight="bold"
+                >
+                  {item.title}
+                </Button>
+              </Link>
+            ))}
           </HStack>
           <HStack spacing={2}>
             <ColorModeSwitcher />
