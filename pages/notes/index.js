@@ -5,7 +5,7 @@ const index = () => {
   return (
     <Center p={4}>
       <Text fontSize="4xl" fontWeight="bold" textAlign="center">
-        Project Page still in development.
+        Notes Page still in development.
       </Text>
     </Center>
   );

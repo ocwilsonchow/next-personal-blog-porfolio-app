@@ -1,10 +1,13 @@
 import React from 'react'
+import { Center, Flex, Text } from "@chakra-ui/react";
 
 const index = () => {
   return (
-    <div>
-      Gallery
-    </div>
+     <Center p={4}>
+      <Text fontSize="4xl" fontWeight="bold" textAlign="center">
+        Gallery Page still in development.
+      </Text>
+    </Center>
   )
 }
 

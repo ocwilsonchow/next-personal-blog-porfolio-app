@@ -19,8 +19,8 @@ const Navbar = () => {
       link: "/projects",
     },
     {
-      title: "Aspirations",
-      link: "/aspirations",
+      title: "Notes",
+      link: "/notes",
     },
     {
       title: "Gallery",
