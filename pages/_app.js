@@ -5,13 +5,13 @@ import { PostProvider } from "../context/postContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <PostProvider>
+    <PostProvider>
+      <ChakraProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </PostProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </PostProvider>
   );
 }
 

@@ -15,8 +15,8 @@ const Navbar = () => {
       link: "/blog",
     },
     {
-      title: "Projects",
-      link: "/projects",
+      title: "Project",
+      link: "/project",
     },
     {
       title: "Notes",
@@ -43,7 +43,7 @@ const Navbar = () => {
           </Code>
         </Link>
         <Flex  flexWrap="wrap" p={2}>
-          <HStack spacing={3} mr={14}>
+          <HStack spacing={3} mr={14} display={{base: 'none', md: 'flex'}}>
             {menuItems.map((item, i) => (
               <Link href={item.link} key={i}>
                 <Button

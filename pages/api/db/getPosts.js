@@ -5,6 +5,10 @@ const getPostsFromSanity = async (req, res) => {
     *[_type == "post"]{
       title,
       slug,
+      categories,
+      publishedAt,
+      body,
+      author,
       mainImage{
         asset->{
           _id,

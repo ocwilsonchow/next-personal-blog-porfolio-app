@@ -1,12 +1,12 @@
 import { Flex } from '@chakra-ui/react'
 import React from 'react'
 
-const PageNotesIndex = () => {
+const PageProjectIndex = () => {
   return (
     <Flex>
-      Notes Index Page
+      Project Index Page
     </Flex>
   )
 }
 
-export default PageNotesIndex
+export default PageProjectIndex
