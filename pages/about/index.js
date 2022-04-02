@@ -1,9 +1,10 @@
 import React from 'react'
+import AboutShort from '../../components/AboutShort'
 
 const index = () => {
   return (
     <div>
-      About Wilson
+       <AboutShort />
     </div>
   )
 }

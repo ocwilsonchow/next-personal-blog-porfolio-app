@@ -1,14 +1,14 @@
 import React from "react";
 import { Center, Flex, Text } from "@chakra-ui/react";
 
-const index = () => {
+const Hero = () => {
   return (
     <Center p={4}>
       <Text fontSize="7xl" fontWeight="bold" textAlign="center">
-        Project Page still in development.
+        This site will replace the old version soon. Stay tuned!
       </Text>
     </Center>
   );
 };
 
-export default index;
+export default Hero;

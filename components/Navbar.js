@@ -1,6 +1,7 @@
 import { Flex, HStack, Text, IconButton, Button, Code } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { FaGithub } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai"
 import Link from "next/link";
 
 const Navbar = () => {
@@ -34,14 +35,15 @@ const Navbar = () => {
         maxW="1000px"
         alignItems="center"
         justifyContent="space-between"
+        flexWrap="wrap"
       >
         <Link href="/">
-          <Code fontWeight="bold" bg="none" fontSize="2xl">
+          <Code fontWeight="bold" bg="none" fontSize="2xl" cursor="pointer" _hover={{color: 'blue.400'}}>
             wilson_dev
           </Code>
         </Link>
-        <Flex p={2}>
-          <HStack spacing={5} mr={10}>
+        <Flex  flexWrap="wrap" p={2}>
+          <HStack spacing={3} mr={14}>
             {menuItems.map((item, i) => (
               <Link href={item.link} key={i}>
                 <Button
@@ -56,14 +58,19 @@ const Navbar = () => {
               </Link>
             ))}
           </HStack>
-          <HStack spacing={2}>
+          <HStack spacing={3}>
             <ColorModeSwitcher />
             <IconButton
               icon={<FaGithub />}
               size="sm"
               variant="outline"
-              mr={1}
               borderRadius="full"
+            />
+            <IconButton
+              icon={<AiFillMessage />}
+              size="sm"
+              borderRadius="full"
+              colorScheme="linkedin"
             />
           </HStack>
         </Flex>
