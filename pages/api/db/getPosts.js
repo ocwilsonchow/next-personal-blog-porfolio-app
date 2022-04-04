@@ -2,13 +2,14 @@ import { client } from "../../../lib/sanity";
 
 const getPostsFromSanity = async (req, res) => {
   const query = `
-    *[_type == "post"]{
+    *[_type == "post"] | order(publishedAt desc) {
       title,
       slug,
       categories,
       publishedAt,
       body,
-      author,
+      "author" : author->name,
+      "authorImage" : author->image,
       mainImage{
         asset->{
           _id,

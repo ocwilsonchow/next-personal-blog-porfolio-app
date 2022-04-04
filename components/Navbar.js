@@ -32,7 +32,7 @@ const Navbar = () => {
     <Flex w="100%" p={4} justifyContent="center">
       <Flex
         w="100%"
-        maxW="1000px"
+        maxW="1200px"
         alignItems="center"
         justifyContent="space-between"
         flexWrap="wrap"
