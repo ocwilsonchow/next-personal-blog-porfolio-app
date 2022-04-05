@@ -1,6 +1,13 @@
-import { Badge, Img, Center, Flex, Spinner, Text, LinkBox } from "@chakra-ui/react";
+import {
+  Badge,
+  Img,
+  Center,
+  Flex,
+  Spinner,
+  Text,
+  LinkBox,
+} from "@chakra-ui/react";
 import imageUrlBuilder from "@sanity/image-url";
-
 
 const builder = imageUrlBuilder({
   projectId: "i3xzrnz1",
@@ -27,14 +34,16 @@ const SinglePost = ({ post }) => {
           height="300px"
           objectFit="cover"
           mb={3}
+          alt=""
         />
         <Flex>
           <Img
             src={urlFor(post?.authorImage).url()}
-boxSize="40px"
+            boxSize="40px"
             objectFit="cover"
             mr={2}
             borderRadius="full"
+            alt=""
           />
 
           <Flex flexDir="column" justifyContent="center">

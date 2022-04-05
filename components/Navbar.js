@@ -66,7 +66,7 @@ const Navbar = () => {
           </HStack>
           <HStack spacing={3}>
             <ColorModeSwitcher />
-            <a href="https://github.com/ocwilsonchow/next-personal-blog-porfolio-app" target="_blank">
+            <a href="https://github.com/ocwilsonchow/next-personal-blog-porfolio-app" target="_blank" rel="noreferrer" >
               <IconButton
               icon={<FaGithub />}
               size="sm"
