@@ -4,8 +4,6 @@ import {apiGetBlogPosts} from "../../lib/blog";
 
 
 export default function PageBlogIndex({posts}) {
-  console.log(posts)
-
   return (
     <Flex flexDir="column" alignItems="center">
       <Center mb={4} fontWeight="bold" fontSize="2xl">
