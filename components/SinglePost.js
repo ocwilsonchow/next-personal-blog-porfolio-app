@@ -38,7 +38,6 @@ const SinglePost = ({ post }) => {
             mb={3}
             alt=""
           />
-          <Badge>{post.slug.current}</Badge>
           <Flex>
             <Img
               src={urlFor(post?.authorImage).url()}
