@@ -4,6 +4,7 @@ import {
   Center,
   Flex,
   Spinner,
+  useColorModeValue,
   Text,
   LinkBox,
 } from "@chakra-ui/react";
@@ -19,6 +20,8 @@ function urlFor(source) {
 }
 
 const SinglePost = ({ post }) => {
+  const boxBgColor = useColorModeValue("gray.100", "gray.700");
+
   return (
     <LinkBox
       my={2}
@@ -27,6 +30,8 @@ const SinglePost = ({ post }) => {
       maxW="sm"
       p={4}
       alignItems="center"
+      cursor="pointer"
+      _hover={{ bg: boxBgColor, color: "blue.500"}}
     >
       <Link href={`blog/${post.slug.current}`}>
         <Flex flexDir="column" h="100%">
