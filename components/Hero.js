@@ -1,13 +1,14 @@
 import React from "react";
-import { Center, Flex, Text } from "@chakra-ui/react";
+import { Center, Flex, Text, VStack } from "@chakra-ui/react";
+import Image from "next/image";
+import Devdesk from "../images/devTransparent.png";
 
 const Hero = () => {
   return (
-    <Center p={4}>
-      <Text fontSize="5xl" fontWeight="bold" textAlign="center">
-        This site will replace the old version soon. Stay tuned!
-      </Text>
-    </Center>
+    <VStack p={2}>
+      <Image src={Devdesk} width="500px" height="500px" />
+      <Text fontWeight="bold" fontSize="6xl">Launching Soon.</Text>
+    </VStack>
   );
 };
 

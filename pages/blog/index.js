@@ -12,7 +12,7 @@ const PageBlogIndex = () => {
   return (
     <Flex flexDir="column" alignItems="center">
       <Center mb={4} fontWeight="bold" fontSize="2xl">
-        SWR Client-side Rendering Blog Posts
+        Blog Posts
       </Center>
       <Flex flexDir="column" justifyContent="center">
         {!data && (
