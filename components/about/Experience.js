@@ -16,8 +16,8 @@ export default function Experience({experiences}) {
           {experiences?.map((experience, i) => (
             <Flex flexDir="column" key={i} mb={3} borderWidth="1px" p={3}>
               <Text fontWeight="bold">{experience.title}</Text>
-              <Text>{experience.description.map((item) => (
-                <Text>{item}</Text>
+              <Text>{experience.description.map((item, i) => (
+                <Text key={i}>{item}</Text>
               ))}</Text>
             </Flex>
           ))}
