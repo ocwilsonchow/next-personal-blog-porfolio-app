@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <VStack p={2}>
       <Image src={Devdesk} width="500px" height="500px" />
-      <Text fontWeight="bold" fontSize="6xl">Launching Soon.</Text>
+      <Text fontWeight="bold" fontSize="4xl">Launching Soon.</Text>
     </VStack>
   );
 };
