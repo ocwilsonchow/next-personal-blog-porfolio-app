@@ -22,7 +22,7 @@ const SinglePost = ({ post }) => {
     >
       <Flex flexDir="column" h="100%">
         <Img
-          src={post.mainImage.asset.url}
+          src={post?.mainImage?.asset?.url}
           width="300px"
           height="300px"
           objectFit="cover"
@@ -30,7 +30,7 @@ const SinglePost = ({ post }) => {
         />
         <Flex>
           <Img
-            src={urlFor(post.authorImage).url()}
+            src={urlFor(post?.authorImage).url()}
 boxSize="40px"
             objectFit="cover"
             mr={2}
@@ -39,11 +39,11 @@ boxSize="40px"
 
           <Flex flexDir="column" justifyContent="center">
             <Text fontWeight="bold" fontSize="lg">
-              {post.title}
+              {post?.title}
             </Text>
             <Text fontSize="xs" color="gray.500">
-              Created on {new Date(post.publishedAt).toLocaleDateString()} by{" "}
-              {post.author}
+              Created on {new Date(post?.publishedAt).toLocaleDateString()} by{" "}
+              {post?.author}
             </Text>
           </Flex>
         </Flex>

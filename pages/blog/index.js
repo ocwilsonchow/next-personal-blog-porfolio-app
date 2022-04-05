@@ -16,13 +16,13 @@ const PageBlogIndex = () => {
       </Center>
       <Flex flexDir="column" justifyContent="center">
         {!data && (
-          <Center>
+          <Center p={6}>
             <Spinner />
           </Center>
         )}
         <Flex flexWrap="wrap" justifyContent="center">
           {data?.map((post, i) => (
-            <Flex key={i} m={2}>
+            <Flex key={i} m={1.5}>
               <SinglePost post={post} i={i} />
             </Flex>
           ))}

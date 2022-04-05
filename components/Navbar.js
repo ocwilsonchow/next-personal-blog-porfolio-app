@@ -1,7 +1,7 @@
 import { Flex, HStack, Text, IconButton, Button, Code } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { FaGithub } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai"
+import { AiFillMessage } from "react-icons/ai";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -38,12 +38,18 @@ const Navbar = () => {
         flexWrap="wrap"
       >
         <Link href="/">
-          <Code fontWeight="bold" bg="none" fontSize="2xl" cursor="pointer" _hover={{color: 'blue.400'}}>
+          <Code
+            fontWeight="bold"
+            bg="none"
+            fontSize="2xl"
+            cursor="pointer"
+            _hover={{ color: "blue.400" }}
+          >
             wilson_dev
           </Code>
         </Link>
-        <Flex  flexWrap="wrap" p={2}>
-          <HStack spacing={3} mr={14} display={{base: 'none', md: 'flex'}}>
+        <Flex flexWrap="wrap" p={2}>
+          <HStack spacing={3} mr={14} display={{ base: "none", md: "flex" }}>
             {menuItems.map((item, i) => (
               <Link href={item.link} key={i}>
                 <Button
@@ -60,17 +66,19 @@ const Navbar = () => {
           </HStack>
           <HStack spacing={3}>
             <ColorModeSwitcher />
-            <IconButton
+            <a href="https://github.com/ocwilsonchow/next-personal-blog-porfolio-app" target="_blank">
+              <IconButton
               icon={<FaGithub />}
               size="sm"
               variant="outline"
               borderRadius="full"
             />
+            </a>
             <IconButton
               icon={<AiFillMessage />}
               size="sm"
               borderRadius="full"
-              colorScheme="linkedin"
+              variant="outline"
             />
           </HStack>
         </Flex>
