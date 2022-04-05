@@ -5,9 +5,9 @@ import {apiGetBlogPosts} from "../../lib/blog";
 
 export default function PageBlogIndex({posts}) {
   return (
-    <Flex flexDir="column" alignItems="center">
-      <Center mb={4} fontWeight="bold" fontSize="2xl">
-        Static Generation Blog Posts
+    <Flex flexDir="column" alignItems="center" pb={10}>
+      <Center mb={4} fontWeight="bold" fontSize="3xl">
+        Blog Posts
       </Center>
       <Flex flexDir="column" justifyContent="center">
         {!posts && (
@@ -29,7 +29,6 @@ export default function PageBlogIndex({posts}) {
 
 export async function getStaticProps () {
   const posts = await apiGetBlogPosts()
-
   return {
     props: {
       posts

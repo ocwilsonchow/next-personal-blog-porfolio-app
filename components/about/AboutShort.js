@@ -4,15 +4,15 @@ import { Flex, Text } from "@chakra-ui/react";
 const AboutShort = () => {
   return (
     <Flex flexDir="column" p={4}>
-      <Text mt={8} mb={2} fontWeight="extrabold" fontSize="md">
+      <Text mt={8} mb={2} fontWeight="extrabold" fontSize="xl">
         About
       </Text>
       <Text fontWeight="extrabold" fontSize="4xl">
         Wilson Chow
       </Text>
-      <Text>React Developer · Front-end Lover · 3D Graphics Lover</Text>
+      <Text>Full-stack Web Developer · React Developer · Front-end Lover · 3D Graphics Lover</Text>
       <Text>Based in Hong Kong</Text>
-      <Text mt={8} mb={2} fontWeight="extrabold" fontSize="md">
+      <Text mt={8} mb={2} fontWeight="extrabold" fontSize="xl">
         Biography
       </Text>
       <Text>

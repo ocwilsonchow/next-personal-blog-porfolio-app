@@ -1,8 +1,17 @@
-import { Flex, HStack, Text, IconButton, Button, Code } from "@chakra-ui/react";
+import {
+  Flex,
+  HStack,
+  Text,
+  IconButton,
+  Button,
+  Code,
+  Box,
+} from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { FaGithub } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import Link from "next/link";
+import DrawerMenu from "./DrawerMenu";
 
 const Navbar = () => {
   const menuItems = [
@@ -66,13 +75,17 @@ const Navbar = () => {
           </HStack>
           <HStack spacing={3}>
             <ColorModeSwitcher />
-            <a href="https://github.com/ocwilsonchow/next-personal-blog-porfolio-app" target="_blank" rel="noreferrer" >
+            <a
+              href="https://github.com/ocwilsonchow/next-personal-blog-porfolio-app"
+              target="_blank"
+              rel="noreferrer"
+            >
               <IconButton
-              icon={<FaGithub />}
-              size="sm"
-              variant="outline"
-              borderRadius="full"
-            />
+                icon={<FaGithub />}
+                size="sm"
+                variant="outline"
+                borderRadius="full"
+              />
             </a>
             <IconButton
               icon={<AiFillMessage />}
@@ -80,6 +93,9 @@ const Navbar = () => {
               borderRadius="full"
               variant="outline"
             />
+            <Box display={{base: 'block', md: 'none'}}>
+              <DrawerMenu />
+            </Box>
           </HStack>
         </Flex>
       </Flex>

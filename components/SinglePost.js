@@ -58,7 +58,7 @@ const SinglePost = ({ post }) => {
                 {post?.title}
               </Text>
               <Text fontSize="xs" color="gray.500">
-                Created on {new Date(post?.publishedAt).toLocaleDateString()} by{" "}
+                Published on {new Date(post?.publishedAt).toLocaleDateString()} by{" "}
                 {post?.author}
               </Text>
             </Flex>
