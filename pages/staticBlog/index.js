@@ -1,24 +1,27 @@
 import { Center, Flex, Spinner } from "@chakra-ui/react";
+import useSWR, { SWRConfig } from "swr";
+import axios from "axios";
 import SinglePost from "../../components/SinglePost";
-import {apiGetBlogPosts} from "../../lib/blog";
+import getPostsFromSanity from "../api/db/getPosts";
 
+const fetcher = (url) => axios.get(url).then((res) => res.data.data);
 
-export default function PageBlogIndex({posts}) {
-  console.log(posts)
+const PageBlogIndex = () => {
+  const { data } = useSWR("api/db/getPosts", fetcher);
 
   return (
     <Flex flexDir="column" alignItems="center">
       <Center mb={4} fontWeight="bold" fontSize="2xl">
-        Static Generation Blog Posts
+        SWR Blog Posts
       </Center>
       <Flex flexDir="column" justifyContent="center">
-        {!posts && (
+        {!data && (
           <Center p={6}>
             <Spinner />
           </Center>
         )}
         <Flex flexWrap="wrap" justifyContent="center">
-          {posts?.map((post, i) => (
+          {data?.map((post, i) => (
             <Flex key={i} m={1.5}>
               <SinglePost post={post} i={i} />
             </Flex>
@@ -29,12 +32,4 @@ export default function PageBlogIndex({posts}) {
   );
 };
 
-export async function getStaticProps () {
-  const posts = await apiGetBlogPosts()
-
-  return {
-    props: {
-      posts
-    }
-  }
-}
+export default PageBlogIndex;
