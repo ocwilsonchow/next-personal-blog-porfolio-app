@@ -1,7 +1,9 @@
-import { Flex, Text, Img } from "@chakra-ui/react";
-import { apiGetBlogPost, apiGetBlogPostIds } from "../../lib/blog";
+import { Flex, Text, Img, Center, Grid, GridItem } from "@chakra-ui/react";
+import { apiGetBlogPost, apiGetBlogPostIds, apiGetBlogPosts } from "../../lib/blog";
 import { useRouter } from "next/router";
 import imageUrlBuilder from "@sanity/image-url";
+import BlockContent from "@sanity/block-content-to-react";
+import BlogMenu from "../../components/blog/BlogMenu";
 
 const builder = imageUrlBuilder({
   projectId: "i3xzrnz1",
@@ -11,31 +13,40 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-export default function PageShowBlogPost({ post }) {
+export default function PageShowBlogPost({ post, posts }) {
   const router = useRouter();
-  console.log(post);
+  console.log(posts);
 
   if (router.isFallback) return <div>Loading...</div>;
   if (!post) return <div>This post does not exist.</div>;
 
   return (
-    <Flex flexDir="column" h="100%">
-      <Img
-        src={post?.mainImage?.asset?.url}
-        width="300px"
-        height="300px"
-        objectFit="cover"
-        mb={3}
-        alt=""
-      />
-      <Flex alignItems="center">
-        <Flex flexDir="column" justifyContent="center">
-          <Text fontWeight="bold" fontSize="3xl">
-            {post?.title}
-          </Text>
+    <Grid templateColumns="repeat(12, 1fr)">
+      <GridItem colSpan={{ base: 0, md: 2 }} borderRightWidth="1px" mr={2}>
+        <BlogMenu posts={posts} />
+      </GridItem>
+      <GridItem colSpan={{ base: 12, md: 10 }}>
+        <Flex flexDir="column" h="100%" alignItems="center">
+          <Img
+            src={post?.mainImage?.asset?.url}
+            width="500px"
+            height="500px"
+            objectFit="cover"
+            alt=""
+          />
+          <Flex flexDir="column" alignItems="center" p={4} maxW="800px">
+            <Text fontWeight="bold" fontSize="3xl" mb={2}>
+              {post?.title}
+            </Text>
+            <BlockContent
+              blocks={post.body}
+              projectId="i3xzrnz1"
+              dataset="production"
+            />
+          </Flex>
         </Flex>
-      </Flex>
-    </Flex>
+      </GridItem>
+    </Grid>
   );
 }
 
@@ -49,10 +60,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = await apiGetBlogPost(params.slug);
-
+  const posts = await apiGetBlogPosts();
   return {
     props: {
       post,
+      posts,
     },
   };
 }

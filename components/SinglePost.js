@@ -37,8 +37,8 @@ const SinglePost = ({ post }) => {
         <Flex flexDir="column" h="100%">
           <Img
             src={post?.mainImage?.asset?.url}
-            width="280px"
-            height="280px"
+            width="250px"
+            height="250px"
             objectFit="cover"
             mb={3}
             alt=""

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <Flex flexDir="column" h="100vh" position="relative">
       <Navbar />
       <Flex justifyContent="center" p={2}>
-        <Flex maxW="1000px">{children}</Flex>
+        <Flex maxW="1200px">{children}</Flex>
       </Flex>
 
     </Flex>
