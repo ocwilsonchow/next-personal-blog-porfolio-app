@@ -14,7 +14,7 @@ const Education = ({ educations }) => {
         )}
         <Flex flexDir="column">
           {educations?.map((education, i) => (
-            <Flex alignItems="center" borderWidth="1px" borderRadius="md" mb={3} p={3}>
+            <Flex alignItems="center" borderWidth="1px" borderRadius="md" mb={3} p={3} key={i}>
               <Img
                 src={education.mainImage.asset.url}
                 boxSize="80px"
@@ -22,7 +22,7 @@ const Education = ({ educations }) => {
                 alt=""
                 mr={3}
               />
-              <Flex flexDir="column" key={i}>
+              <Flex flexDir="column">
                 <Text fontWeight="bold">{education.title}</Text>
                 <Text fontWeight="light">
                   {education.organization}, {education.place}

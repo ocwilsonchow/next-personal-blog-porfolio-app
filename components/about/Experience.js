@@ -35,7 +35,7 @@ export default function Experience({ experiences }) {
               <Text fontWeight="bold">{experience.title}</Text>
               <List flexDir="column">
                 {experience.description.map((item, i) => (
-                  <ListItem display="flex" fontWeight="light">
+                  <ListItem display="flex" fontWeight="light" key={i}>
                     <ListIcon as={BsDot} mt={1}/>
                     {item}
                   </ListItem>
