@@ -29,22 +29,9 @@ export default function PageShowBlogPost({ post }) {
         alt=""
       />
       <Flex alignItems="center">
-        <Img
-          src={urlFor(post?.authorImage).url()}
-          boxSize="40px"
-          objectFit="cover"
-          mr={2}
-          borderRadius="full"
-          alt=""
-        />
-
         <Flex flexDir="column" justifyContent="center">
           <Text fontWeight="bold" fontSize="3xl">
             {post?.title}
-          </Text>
-          <Text fontSize="xs" color="gray.500">
-            Created on {new Date(post?.publishedAt).toLocaleDateString()} by{" "}
-            {post?.author}
           </Text>
         </Flex>
       </Flex>

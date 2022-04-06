@@ -11,6 +11,7 @@ import post from './post'
 import author from './author'
 import experience from './experience'
 import education from './education'
+import note from './note'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,6 +29,7 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     experience,
-    education
+    education,
+    note
   ]),
 })

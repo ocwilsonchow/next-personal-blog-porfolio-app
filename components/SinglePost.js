@@ -31,19 +31,19 @@ const SinglePost = ({ post }) => {
       p={4}
       alignItems="center"
       cursor="pointer"
-      _hover={{ bg: boxBgColor, color: "blue.500"}}
+      _hover={{ color: "blue.500"}}
     >
       <Link href={`blog/${post.slug.current}`}>
         <Flex flexDir="column" h="100%">
           <Img
             src={post?.mainImage?.asset?.url}
-            width="300px"
-            height="300px"
+            width="280px"
+            height="280px"
             objectFit="cover"
             mb={3}
             alt=""
           />
-          <Flex>
+          <Flex alignItems="center">
             <Img
               src={urlFor(post?.authorImage).url()}
               boxSize="40px"
@@ -58,7 +58,7 @@ const SinglePost = ({ post }) => {
                 {post?.title}
               </Text>
               <Text fontSize="xs" color="gray.500">
-                Published on {new Date(post?.publishedAt).toLocaleDateString()} by{" "}
+                {new Date(post?.publishedAt).toLocaleDateString()} -{" "}
                 {post?.author}
               </Text>
             </Flex>
