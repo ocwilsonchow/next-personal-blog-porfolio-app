@@ -31,8 +31,8 @@ const Skills = () => {
         Skills
       </Text>
       <Flex flexWrap="wrap">
-        {skills.map((skill) => (
-          <Tag m={1} fontSize="md" fontWeight="bold" colorScheme="cyan">{skill.name}</Tag>
+        {skills.map((skill, i) => (
+          <Tag key={i} m={1} fontSize="md" fontWeight="bold" colorScheme="cyan">{skill.name}</Tag>
         ))}
       </Flex>
     </Flex>
