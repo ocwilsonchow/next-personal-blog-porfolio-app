@@ -3,14 +3,14 @@ import React from 'react'
 import AboutShort from '../components/about/AboutShort'
 import Experience from '../components/about/Experience'
 import Education from '../components/about/Education'
-import { apiGetExperiences } from "../lib/about"
+import { apiGetEducation, apiGetExperiences } from "../lib/about"
 
-const PageAbout = ({experiences}) => {
-
+const PageAbout = ({experiences, educations}) => {
+console.log(educations)
   return (
     <Flex flexDir="column">
       <AboutShort />
-      <Education />
+      <Education educations={educations} />
       <Experience experiences={experiences} />
     </Flex>
   )
@@ -20,9 +20,11 @@ export default PageAbout
 
 export async function getStaticProps () {
   const experiences = await apiGetExperiences();
+  const educations = await apiGetEducation()
   return {
     props: {
       experiences,
+      educations
     },
   };
 }

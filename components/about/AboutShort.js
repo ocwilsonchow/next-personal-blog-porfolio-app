@@ -10,12 +10,12 @@ const AboutShort = () => {
       <Text fontWeight="extrabold" fontSize="4xl">
         Wilson Chow
       </Text>
-      <Text>Full-stack Web Developer · React Developer · Front-end Lover · 3D Graphics Lover</Text>
-      <Text>Based in Hong Kong</Text>
+      <Text fontWeight="light">Full-stack Web Developer · React Developer · Front-end Lover · 3D Graphics Lover</Text>
+      <Text fontWeight="light">Based in Hong Kong</Text>
       <Text mt={8} mb={2} fontWeight="extrabold" fontSize="xl">
         Biography
       </Text>
-      <Text>
+      <Text fontWeight="light">
         Passionate web developer based in Hong Kong. From a pharmacy background.
         Love beautiful software applications. Passionate in front-end
         development and Blender 3D modelling. Good at design. His vision is to
