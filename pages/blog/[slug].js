@@ -22,10 +22,10 @@ export default function PageShowBlogPost({ post, posts }) {
 
   return (
     <Grid templateColumns="repeat(12, 1fr)">
-      <GridItem colSpan={{ base: 0, md: 2 }} borderRightWidth="1px" mr={2}>
+      <GridItem colSpan={{ base: 0, lg: 2 }} borderRightWidth="1px" mr={2} display={{base: 'none', lg: 'block'}}>
         <BlogMenu posts={posts} />
       </GridItem>
-      <GridItem colSpan={{ base: 12, md: 10 }}>
+      <GridItem colSpan={{ base: 12, lg: 10 }}>
         <Flex flexDir="column" h="100%" alignItems="center">
           <Img
             src={post?.mainImage?.asset?.url}

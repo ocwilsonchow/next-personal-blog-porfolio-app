@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Center,
   Flex,
@@ -11,7 +12,7 @@ import Link from "next/link";
 
 const BlogMenu = ({posts}) => {
   return (
-    <>
+    <Box p={2}>
       {posts?.map((post, i) => (
         <Link href={`/blog/${post.slug.current}`} key={i}>
           <Button variant="link" py={2} fontWeight="bold" my={1}>
@@ -19,7 +20,7 @@ const BlogMenu = ({posts}) => {
           </Button>
         </Link>
       ))}
-    </>
+    </Box>
   );
 };
 
