@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import {
   apiGetBlogPost,
-  apiGetBlogPostComments,
   apiGetBlogPostIds,
   apiGetBlogPosts,
 } from "../../lib/blog";
@@ -29,9 +28,9 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-export default function PageShowBlogPost({ post, posts, comments }) {
+export default function PageShowBlogPost({ post, posts }) {
   const router = useRouter();
-  console.log(comments)
+  console.log(post)
   if (router.isFallback) return <div>Loading...</div>;
   if (!post) return <div>This post does not exist.</div>;
 
@@ -79,7 +78,7 @@ export default function PageShowBlogPost({ post, posts, comments }) {
             />
 
             <Flex flexDir="column">
-              <Comments comments={comments} />
+              <Comments comments={post.relatedComments} />
             </Flex>
           </GridItem>
         </Grid>
@@ -97,14 +96,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const comments = await apiGetBlogPostComments(params.slug)
+
   const post = await apiGetBlogPost(params.slug);
   const posts = await apiGetBlogPosts();
   return {
     props: {
       post,
       posts,
-      comments
+
     },
   };
 }
