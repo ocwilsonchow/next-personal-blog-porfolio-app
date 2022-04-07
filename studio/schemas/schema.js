@@ -12,6 +12,7 @@ import author from './author'
 import experience from './experience'
 import education from './education'
 import note from './note'
+import comment from './comment'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,6 +31,7 @@ export default createSchema({
     blockContent,
     experience,
     education,
-    note
+    note,
+    comment
   ]),
 })

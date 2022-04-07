@@ -16,7 +16,14 @@ export default function PageBlogIndex({ posts }) {
   console.log(posts);
   return (
     <Grid templateColumns="repeat(12, 1fr)">
-      <GridItem colSpan={{ base: 0, lg: 2 }} borderRightWidth="1px" mr={2}  display={{base: 'none', lg: 'block'}} >
+      <GridItem
+        colSpan={{ base: 0, lg: 2 }}
+        borderRightWidth="1px"
+        mr={2}
+        px={3}
+        display={{ base: "none", lg: "block" }}
+        w="200px"
+      >
         <BlogMenu posts={posts} />
       </GridItem>
       <GridItem colSpan={{ base: 12, lg: 10 }}>

@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { Flex, Text, Img, Center, Grid, GridItem } from "@chakra-ui/react";
-import { apiGetBlogPost, apiGetBlogPostIds, apiGetBlogPosts } from "../../lib/blog";
+import {
+  apiGetBlogPost,
+  apiGetBlogPostIds,
+  apiGetBlogPosts,
+} from "../../lib/blog";
 import { useRouter } from "next/router";
 import imageUrlBuilder from "@sanity/image-url";
-import BlockContent from "@sanity/block-content-to-react";
+import { PortableText } from "@portabletext/react";
 import BlogMenu from "../../components/blog/BlogMenu";
+import Comments from "../../components/blog/Comments";
 
 const builder = imageUrlBuilder({
   projectId: "i3xzrnz1",
@@ -15,6 +21,7 @@ function urlFor(source) {
 
 export default function PageShowBlogPost({ post, posts }) {
   const router = useRouter();
+  const [comments, setComments] = useState();
   console.log(posts);
 
   if (router.isFallback) return <div>Loading...</div>;
@@ -22,30 +29,40 @@ export default function PageShowBlogPost({ post, posts }) {
 
   return (
     <Grid templateColumns="repeat(12, 1fr)">
-      <GridItem colSpan={{ base: 0, lg: 2 }} borderRightWidth="1px" mr={2} display={{base: 'none', lg: 'block'}}>
+      <GridItem
+        colSpan={{ base: 0, lg: 2 }}
+        borderRightWidth="1px"
+        mr={2}
+        px={3}
+        display={{ base: "none", lg: "block" }}
+        w="200px"
+      >
         <BlogMenu posts={posts} />
       </GridItem>
       <GridItem colSpan={{ base: 12, lg: 10 }}>
-        <Flex flexDir="column" h="100%" alignItems="center">
-          <Img
-            src={post?.mainImage?.asset?.url}
-            width="300px"
-            height="300px"
-            objectFit="cover"
-            alt=""
-            borderRadius="md"
-          />
-          <Flex flexDir="column" alignItems="center" p={4} maxW="800px">
-            <Text fontWeight="bold" fontSize="3xl" mb={2}>
-              {post?.title}
-            </Text>
-            <BlockContent
-              blocks={post.body}
-              projectId="i3xzrnz1"
-              dataset="production"
+        <Grid templateColumns="repeat(10, 1fr)">
+          <GridItem colSpan={{ base: 10, md: 7 }} p={6}>
+            <Flex flexDir="column" h="100%">
+              <Text fontWeight="bold" fontSize="3xl" mb={2}>
+                {post?.title}
+              </Text>
+
+              <PortableText value={post.body} />
+            </Flex>
+          </GridItem>
+          <GridItem colSpan={{ base: 10, md: 3 }} p={6} borderLeftWidth="1px">
+            <Img
+              src={post?.mainImage?.asset?.url}
+              objectFit="cover"
+              alt=""
+              borderRadius="md"
             />
-          </Flex>
-        </Flex>
+
+            <Flex flexDir="column">
+              <Comments  comments={comments} />
+            </Flex>
+          </GridItem>
+        </Grid>
       </GridItem>
     </Grid>
   );
