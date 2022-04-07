@@ -1,7 +1,16 @@
 import { useState } from "react";
-import { Flex, Text, Img, Center, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Img,
+  Center,
+  Grid,
+  GridItem,
+  VStack,
+} from "@chakra-ui/react";
 import {
   apiGetBlogPost,
+  apiGetBlogPostComments,
   apiGetBlogPostIds,
   apiGetBlogPosts,
 } from "../../lib/blog";
@@ -10,6 +19,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import BlogMenu from "../../components/blog/BlogMenu";
 import Comments from "../../components/blog/Comments";
+import moment from "moment";
 
 const builder = imageUrlBuilder({
   projectId: "i3xzrnz1",
@@ -19,13 +29,21 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-export default function PageShowBlogPost({ post, posts }) {
+export default function PageShowBlogPost({ post, posts, comments }) {
   const router = useRouter();
-  const [comments, setComments] = useState();
-  console.log(posts);
-
+  console.log(comments)
   if (router.isFallback) return <div>Loading...</div>;
   if (!post) return <div>This post does not exist.</div>;
+
+  const components = {
+    block: {
+      h3: ({ children }) => (
+        <Text fontWeight="bold" fontSize="2xl">
+          {children}
+        </Text>
+      ),
+    },
+  };
 
   return (
     <Grid templateColumns="repeat(12, 1fr)">
@@ -42,13 +60,15 @@ export default function PageShowBlogPost({ post, posts }) {
       <GridItem colSpan={{ base: 12, lg: 10 }}>
         <Grid templateColumns="repeat(10, 1fr)">
           <GridItem colSpan={{ base: 10, md: 7 }} p={6}>
-            <Flex flexDir="column" h="100%">
-              <Text fontWeight="bold" fontSize="3xl" mb={2}>
+            <VStack alignItems="start" spacing={4}>
+              <Text fontWeight="bold" fontSize="4xl">
                 {post?.title}
               </Text>
-
-              <PortableText value={post.body} />
-            </Flex>
+              <Text fontSize="xs" color="gray.500" mb={4}>
+                {moment(post.publishedAt).calendar()}
+              </Text>
+              <PortableText value={post.body} components={components} />
+            </VStack>
           </GridItem>
           <GridItem colSpan={{ base: 10, md: 3 }} p={6} borderLeftWidth="1px">
             <Img
@@ -59,7 +79,7 @@ export default function PageShowBlogPost({ post, posts }) {
             />
 
             <Flex flexDir="column">
-              <Comments  comments={comments} />
+              <Comments comments={comments} />
             </Flex>
           </GridItem>
         </Grid>
@@ -77,12 +97,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const comments = await apiGetBlogPostComments(params.slug)
   const post = await apiGetBlogPost(params.slug);
   const posts = await apiGetBlogPosts();
   return {
     props: {
       post,
       posts,
+      comments
     },
   };
 }

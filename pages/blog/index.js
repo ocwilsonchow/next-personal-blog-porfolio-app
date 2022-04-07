@@ -28,9 +28,6 @@ export default function PageBlogIndex({ posts }) {
       </GridItem>
       <GridItem colSpan={{ base: 12, lg: 10 }}>
         <Flex flexDir="column" alignItems="center" pb={10}>
-          <Center mb={4} fontWeight="bold" fontSize="3xl">
-            Blog Posts
-          </Center>
           <Flex flexDir="column" justifyContent="center">
             {!posts && (
               <Center p={6}>

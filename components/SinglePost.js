@@ -1,15 +1,7 @@
-import {
-  Badge,
-  Img,
-  Center,
-  Flex,
-  Spinner,
-  useColorModeValue,
-  Text,
-  LinkBox,
-} from "@chakra-ui/react";
+import { Img, Flex, Text, LinkBox } from "@chakra-ui/react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
+import moment from "moment";
 
 const builder = imageUrlBuilder({
   projectId: "i3xzrnz1",
@@ -20,7 +12,7 @@ function urlFor(source) {
 }
 
 const SinglePost = ({ post }) => {
-  const boxBgColor = useColorModeValue("gray.100", "gray.700");
+  console.log(post);
 
   return (
     <LinkBox
@@ -31,7 +23,7 @@ const SinglePost = ({ post }) => {
       p={4}
       alignItems="center"
       cursor="pointer"
-      _hover={{ color: "blue.500"}}
+      _hover={{ color: "blue.500" }}
     >
       <Link href={`blog/${post.slug.current}`}>
         <Flex flexDir="column" h="100%">
@@ -58,8 +50,7 @@ const SinglePost = ({ post }) => {
                 {post?.title}
               </Text>
               <Text fontSize="xs" color="gray.500">
-                {new Date(post?.publishedAt).toLocaleDateString()} -{" "}
-                {post?.author}
+                {moment(post.publishedAt).calendar()}
               </Text>
             </Flex>
           </Flex>

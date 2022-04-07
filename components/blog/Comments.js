@@ -2,7 +2,7 @@ import { Box, Button, Center, Flex, FormControl, Input, Text, Textarea } from "@
 
 const Comments = ({comments}) => {
   return (
-    <Box>
+    <Flex flexDir="column">
       <Text fontWeight="bold" fontSize="xl" mt={6}>
         Comments
       </Text>
@@ -10,9 +10,10 @@ const Comments = ({comments}) => {
         <Text fontWeight="thin">No comment on this post yet.</Text>
       )}
       <FormControl py={4}>
-        <Textarea mb={4} />
+        <Textarea />
       </FormControl>
-    </Box>
+      <Button>Comment</Button>
+    </Flex>
   );
 };
 
