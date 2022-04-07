@@ -29,10 +29,11 @@ export default function PageShowBlogPost({ post, posts }) {
         <Flex flexDir="column" h="100%" alignItems="center">
           <Img
             src={post?.mainImage?.asset?.url}
-            width="500px"
-            height="500px"
+            width="300px"
+            height="300px"
             objectFit="cover"
             alt=""
+            borderRadius="md"
           />
           <Flex flexDir="column" alignItems="center" p={4} maxW="800px">
             <Text fontWeight="bold" fontSize="3xl" mb={2}>

@@ -6,21 +6,31 @@ import {
   Grid,
   GridItem,
   Spinner,
-  Text,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
-const BlogMenu = ({posts}) => {
+const BlogMenu = ({ posts }) => {
   return (
-    <Box p={2}>
-      {posts?.map((post, i) => (
-        <Link href={`/blog/${post.slug.current}`} key={i}>
-          <Button variant="link" py={2} fontWeight="bold" my={1}>
-            {post.title}
+    <>
+      <Box>
+        <Link href="/blog">
+          <Button variant="link" py={2} fontWeight="extrabold" my={1}>
+            Home
           </Button>
         </Link>
-      ))}
-    </Box>
+      </Box>
+
+      <Box>
+        {posts?.map((post, i) => (
+          <Link href={`/blog/${post.slug.current}`} key={i}>
+            <Button variant="link" py={2} fontWeight="bold" my={1}>
+              {post.title}
+            </Button>
+          </Link>
+        ))}
+      </Box>
+    </>
   );
 };
 

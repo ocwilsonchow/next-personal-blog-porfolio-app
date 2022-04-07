@@ -1,4 +1,4 @@
-import { Badge, Flex, HStack, Tag, Text } from "@chakra-ui/react";
+import { Badge, Button, Flex, HStack, Tag, Text } from "@chakra-ui/react";
 import React from "react";
 
 const skills = [
@@ -32,7 +32,7 @@ const Skills = () => {
       </Text>
       <Flex flexWrap="wrap">
         {skills.map((skill, i) => (
-          <Tag key={i} m={1} fontSize="md" fontWeight="bold" colorScheme="cyan">{skill.name}</Tag>
+          <Button key={i} m={1} fontSize="sm" size="sm" borderRadius="full" variant="outline" fontWeight="light">{skill.name}</Button>
         ))}
       </Flex>
     </Flex>
