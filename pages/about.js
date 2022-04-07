@@ -1,5 +1,5 @@
-import { Flex, Grid, GridItem } from "@chakra-ui/react";
-import React from "react";
+import { Alert, Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { AlertIcon } from "@chakra-ui/icons";
 import AboutShort from "../components/about/AboutShort";
 import Experience from "../components/about/Experience";
 import Education from "../components/about/Education";
@@ -7,16 +7,18 @@ import { apiGetEducation, apiGetExperiences } from "../lib/about";
 import Skills from "../components/about/Skills";
 
 const PageAbout = ({ experiences, educations }) => {
-  console.log(educations);
+
   return (
     <Flex flexDir="column">
+
+      <Alert status="success" mt={4} mx={2} fontWeight='bold'  variant='left-accent'>Page is still under development! </Alert>
       <AboutShort />
       <Skills />
-      <Grid templateColumns='repeat(2, 1fr)' gap={4}>
-        <GridItem colSpan={{ base: 2 ,md: 1}} >
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <GridItem colSpan={{ base: 2, md: 1 }}>
           <Education educations={educations} />
         </GridItem>
-        <GridItem colSpan={{ base: 2 ,md: 1}} >
+        <GridItem colSpan={{ base: 2, md: 1 }}>
           <Experience experiences={experiences} />
         </GridItem>
       </Grid>

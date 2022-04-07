@@ -6,7 +6,7 @@ import {
   Flex,
   Tag,
   Text,
-  VStack,
+  Alert
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Devdesk from "../images/devTransparent.png";

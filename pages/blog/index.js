@@ -6,6 +6,7 @@ import {
   GridItem,
   Spinner,
   Text,
+  Alert
 } from "@chakra-ui/react";
 import Link from "next/link";
 import BlogMenu from "../../components/blog/BlogMenu";
@@ -26,6 +27,7 @@ export default function PageBlogIndex({ posts }) {
       >
         <BlogMenu posts={posts} />
       </GridItem>
+
       <GridItem colSpan={{ base: 12, lg: 10 }}>
         <Flex flexDir="column" alignItems="center" pb={10}>
           <Flex flexDir="column" justifyContent="center">

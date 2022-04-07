@@ -19,8 +19,8 @@ const Comments = ({ comments }) => {
       {comments.length == 0 && (
         <Text fontWeight="thin">No comment on this post yet.</Text>
       )}
-      {comments.map((comment) => (
-        <Flex flexDir="column" borderWidth="1px" p={2} borderRadius="md">
+      {comments.map((comment, i) => (
+        <Flex key={i} flexDir="column" borderLeftWidth="4px" borderColor="green.400" p={2} >
           <Text>{comment.comment}</Text>
           <Text fontSize="xs" color="gray.500" isTruncated>
             {moment(comment.publishedAt).calendar()} by {comment.username}
