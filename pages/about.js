@@ -10,8 +10,6 @@ const PageAbout = ({ experiences, educations }) => {
 
   return (
     <Flex flexDir="column">
-
-      <Alert status="success" mt={4} mx={2} fontWeight='bold'  variant='left-accent'>Page is still under development! </Alert>
       <AboutShort />
       <Skills />
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>

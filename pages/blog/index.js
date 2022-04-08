@@ -6,7 +6,7 @@ import {
   GridItem,
   Spinner,
   Text,
-  Alert
+  Alert,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import BlogMenu from "../../components/blog/BlogMenu";
@@ -56,5 +56,6 @@ export async function getStaticProps() {
     props: {
       posts,
     },
+    revalidate: 60,
   };
 }

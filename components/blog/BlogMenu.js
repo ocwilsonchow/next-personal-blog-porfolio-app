@@ -24,7 +24,7 @@ const BlogMenu = ({ posts }) => {
       <Box>
         {posts?.map((post, i) => (
           <Link href={`/blog/${post.slug.current}`} key={i}>
-            <Button variant="link" py={2} fontWeight="bold" my={1}>
+            <Button variant="link" py={2} fontWeight="bold" color="gray.400" my={1}>
               {post.title}
             </Button>
           </Link>

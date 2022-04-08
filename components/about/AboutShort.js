@@ -7,7 +7,7 @@ const AboutShort = () => {
       <Text mt={8} mb={2} fontWeight="extrabold" fontSize="xl">
         About
       </Text>
-      <Text fontWeight="extrabold" fontSize="4xl">
+      <Text fontWeight="extrabold" fontSize="5xl">
         Wilson Chow
       </Text>
       <Text fontWeight="light">
